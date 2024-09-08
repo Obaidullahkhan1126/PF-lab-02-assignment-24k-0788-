@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+float salary,final salary,tax rate,tax amount;
+printf("Enter your salary");
+scanf(%f,salary);
+printf("Enter tax rate");
+scanf(%f,tax rate);
+tax amount =(tax rate/100)*salary;
+final salary = salary - tax amount;
+printf("The tax to be paid is %f",tax amount);
+printf("The final salary is %f",final salary);
+return 0;
+}
