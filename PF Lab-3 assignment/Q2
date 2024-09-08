@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+int a,b,swap;
+printf("Enter first integer");
+scanf(%d,&a);
+printf("Enter second integer");
+scanf(%i,&b);
+swap = a;
+a=b;
+b=swap;
+printf("The first integer is",%d,&a);
+printf("The second integer is",%d,&b);
+return 0;
+}
