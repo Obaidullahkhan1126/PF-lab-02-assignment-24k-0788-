@@ -1,0 +1,7 @@
+#include <stdio.h>
+int main(){
+ float slope;
+ slope=(2-4)/(3-5)
+ printf("The slope of the two points is %f/2",slope)
+ return 0;
+ }
