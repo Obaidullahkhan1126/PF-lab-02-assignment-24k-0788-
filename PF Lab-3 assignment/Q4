@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+float fuel average,fuel consumed,forward trip cost,return trip cost;
+//user should enter a positive value
+printf("Enter your car's fuel average");
+scanf(%f,&fuel average);
+fuel consumed = (2*1207)/fuel average;
+forward trip cost=fuel consumed*118;
+return trip cost=fuel consumed*123;
+printf("The cost of forward trip is %f",forward trip cost);
+printf("The cost of return trip is %f",return trip cost);
+printf("The total fuel consumed is %f",fuel consumed);
+return 0;
+}
