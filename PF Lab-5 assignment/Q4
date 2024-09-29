@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+	int age;
+	char citizenship[10];
+	printf("Enter your age:");
+	scanf(" %d",&age);
+	printf("Enter your citizenship:");
+	scanf(" %c",&citizenship);
+	if (age > 17 && citizenship =="local"){
+	 printf("You are eligible to vote");}
+	else
+	 printf("You are not eligible to vote");
+	 
+return 0;
+}
