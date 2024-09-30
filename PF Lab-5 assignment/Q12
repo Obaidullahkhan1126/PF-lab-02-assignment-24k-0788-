@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main(){
+	int attendance,assignment_scores,exam_results,result;
+	printf("Enter attendance:,assignment_scores:\n,exam_results:\n"); //all variables input will be from 100
+	scanf(" %d %d %d",&attendance,&assignment_scores,&exam_results);
+    if (attendance >= 80){
+	 result = (assignment_scores*0.3) + (exam_results*0.7);
+	 if (result >=86) {
+	  printf("4 GPA");}
+	 else if (result >= 80){
+	  printf("3.5 GPA");}
+	 else if(result >= 75){
+	  printf("3 GPA");}
+	 else if(result >=50){
+	  printf("2 GPA");}
+	 else 
+	  printf("GPA is less than 2");}
+	else{
+	
+	 printf("Attendance is less than 80,results will not be given");}
+	 
+return 0;
+
+}
