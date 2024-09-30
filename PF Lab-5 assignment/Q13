@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+	char x,encrypt,decrypt;
+	int y;
+	printf("Enter character:\n");
+	scanf(" %c",&x);
+	printf("Enter number");
+	scanf(" %d",&y);
+	encrypt = x^y;
+	decrypt = encrypt^y;
+	printf("The encrypted character is: %c\n",encrypt);
+	printf("The decrypted character is: %c\n",decrypt);
+return 0;
+}
+	
