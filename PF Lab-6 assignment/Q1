@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main(){
+ int num,result;
+ num=1;
+ result=0;
+ while(num!=0){
+  printf("Enter a number:);
+  scanf("%d",&num);
+  result= result + num;
+  printf("The result is %d: \n",result);
+ }
+return 0;
+} 
+ 
