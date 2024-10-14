@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(){
+	int numbers[8];
+	int i;
+	for(int i=0;i<9;i++){
+	 printf("Enter number: \n");
+	 scanf("%d, ",&numbers[i]);
+    }
+    for(int i=8;i>-1;i--){
+    	printf("%d ,",numbers[i]);
+	}
+return 0;
+}
