@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+	int x=0,y=1,num,range;
+	printf("Enter a number till which the series will continue");
+	scanf(" %d",&range);
+	while(num<=range){
+	
+	  printf("%d, ",num);
+	  num =x + y;
+	  x=y;
+	  y=num;
+    }
+	
+return 0;
+}
