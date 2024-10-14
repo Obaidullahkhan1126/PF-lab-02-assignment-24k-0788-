@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main(){
+	int i=2;
+	for(int num= 65536;num!=0;i++){
+		printf("%d, ",num);
+		num/=i;
+    }
+return 0;
+}
