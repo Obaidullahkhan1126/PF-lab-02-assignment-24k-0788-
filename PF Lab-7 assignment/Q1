@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main(){
+	int sum=0;
+	int numbers[10];
+	for(int i=0;sizeof(numbers)/sizeof(numbers[0])!=i;i++){
+		printf("Enter number", i,": ");
+		scanf("%d, ",&numbers[i]);
+	    sum+=numbers[i];
+    }
+	printf("The sum is: %d\n",sum);
+    
+return 0;
+}
