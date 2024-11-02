@@ -1,0 +1,22 @@
+#include<stdio.h>
+int main(){
+	int n,a;
+	printf("Enter the range of odd numbers: ");
+	scanf("%d",&n);
+	for(int i=n/2;i>=0;i--){
+		a=1;
+		for(int j=0;j<=i;j++){
+		   
+		   	printf("%d ",a);
+		   	a+=2;
+		   	 
+		   	
+		   	
+		   }
+		printf("\n");
+			
+		}
+		
+	
+return 0;
+}
