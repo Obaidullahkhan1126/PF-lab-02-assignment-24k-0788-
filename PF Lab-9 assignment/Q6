@@ -1,0 +1,24 @@
+void max_min(int arr[10]){
+	int max=-9999,min=9999;
+	for(int i=0;i<10;i++){
+		if(arr[i]>max){
+			max=arr[i];
+		}
+		if(arr[i]<min){
+			min=arr[i];
+		}
+	}
+	printf("Maximum value: %d\n",max);
+	printf("Minimum value: %d",min);
+	
+}
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int arr[10];
+	printf("Enter numbers: ");
+	for(int j=0;j<10;j++){
+	scanf("%d",&arr[j]);}
+	max_min(arr);
+return 0;
+}
