@@ -1,0 +1,34 @@
+int prime(int x){
+	int flag=1;
+	if(x!=0||x!=1||x!=2){
+	 for(int i=2;i<x ;i++){
+	 	if(x%i==0){
+	 		flag=0;
+	 		break;
+		 }
+	 }
+    }
+	else{
+	
+	 if(x==0||x==1){
+	 	printf("Not prime");}
+	 else
+	  printf("Prime");}
+	
+   if(flag==1){
+   	printf("Prime");}
+   else
+    printf("Not prime");
+   	
+   
+}
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int x;
+	printf("Enter a number");
+	scanf("%d",&x);
+	prime(x);
+return 0;
+}
+	
