@@ -1,0 +1,20 @@
+int swapintegers(int x,int y){
+	int temp;
+	temp=x;
+	x=y;
+	y=temp;
+	printf("First integer is %d\n",x);
+	printf("First integer is %d",y);
+}
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int x,y;
+	printf("Input first integer: ");
+	scanf("%d",&x);
+	printf("Input second integer: ");
+	scanf("%d",&y);
+	swapintegers(x,y);
+	
+return 0;
+}
