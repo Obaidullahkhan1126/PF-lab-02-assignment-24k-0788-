@@ -1,1 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+	int x,flag=1;
+   char str[5][20];
+   for(int i=0;i<5;i++){
+   
+   	scanf("%s",str[i]);
+   	x=strlen(str[i]);
+   	for(int j=0;j<x/2;j++){
+   		if(str[i][j]!=str[i][x-j-1]){
+   		flag=0;}
+   		
+    }
 
+	   
+	   	if(flag==1){
+   	     printf("Palindrome\n");
+        }
+        else
+        printf("Not palindrome\n");
+	   
+   }
+   return 0;
+   }
+  
