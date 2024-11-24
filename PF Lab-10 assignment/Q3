@@ -1,0 +1,18 @@
+static int count=0;
+#define max_temp 40
+void compare(int temperature[],int length){
+	
+	
+	for(int i=0;i<length;i++){
+		if(temperature[i] > max_temp){
+			count+=1;
+		}
+	}
+	printf("Number of times temperature exceeded limit: %d",count);
+}
+int main(){
+	int temperatures[4]={40,50,45,35};
+	int length=4;
+	compare(temperatures,length);
+return 0;
+}
