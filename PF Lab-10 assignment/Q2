@@ -1,0 +1,62 @@
+struct point{
+	float p1x;
+	float p1y;
+	float p2x;
+	float p2y;
+	float boundaryx[4];
+	float boundaryy[4];
+};
+
+void distance(struct point p){
+	float dist =sqrtf(powf(p.p2x-p.p1x,2) + powf(p.p2y-p.p1y,2));
+	printf("Distance: %.2f \n",dist);
+}
+
+void boundary(struct point p){
+	int flag1=0,flag2=0;
+
+for (int i = 0; i < 2; i++) { 
+        if (!(p.boundaryx[0] <= (i == 0 ? p.p1x : p.p2x) && (i == 0 ? p.p1x : p.p2x) <= p.boundaryx[3])) {
+            flag1 = 1;
+            break;
+        }
+    }
+
+    
+    for (int i = 0; i < 2; i++) { 
+        if (!(p.boundaryy[0] <= (i == 0 ? p.p1y : p.p2y) && (i == 0 ? p.p1y : p.p2y) <= p.boundaryy[3])) {
+            flag2 = 1;
+            break;
+        }
+    }
+	if(flag1==0 && flag2==0){
+		printf("within boundary");
+	}
+	else{printf("Out of boundary");
+	}
+}
+#include<stdio.h>
+#include<math.h>
+int main(){
+	struct point point;
+	printf("Enter x coordinate of point1: ");
+	scanf("%f",&point.p1x);
+	printf("Enter x coordinate of point2: ");
+	scanf("%f",&point.p2x);
+	printf("Enter y coordinate of point1: ");
+	scanf("%f",&point.p1y);
+	printf("Enter y coordinate of point2: ");
+	scanf("%f",&point.p2y);
+	for(int i=0;i<4;i++){
+	  printf("Enter boundary points of x coordinate: ");
+	  scanf("%f",&point.boundaryx[i]);
+    }
+    for(int i=0;i<4;i++){
+	  printf("Enter boundary points of y coordinate: ");
+	  scanf("%f",&point.boundaryy[i]);
+    }
+    distance(point);
+    boundary(point);
+	
+return 0;	
+}
