@@ -1,0 +1,21 @@
+void linearsearch(int arr[],int size,int target,int current_index){
+	if(current_index >= size){
+		return;
+	}
+	else
+	 if(arr[current_index]==target){
+	 	return printf("The element is stored in index %d of the array",current_index);}
+	 else{
+	 	linearsearch(arr,size,target,current_index+1);
+	 } 
+	 	
+	 }
+	 
+int main(){
+	int arr[4]={4,3,5,7};
+	int size=4;
+	int target=5;
+	int current_index=1;
+	linearsearch(arr,size,target,current_index);
+return 0;
+}
