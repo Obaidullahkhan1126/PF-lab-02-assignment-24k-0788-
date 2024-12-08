@@ -1,1 +1,186 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Person {
+    char name[20];
+    char country[20];
+};
+
+struct Bowler {
+    char style[10];
+    char armType[6];
+    struct Person details;
+};
+
+struct Batsman {
+    char order[10];
+    char handType[8];
+    struct Bowler bowlerInfo;
+};
+
+void createPerson(struct Person *p, const char *name, const char *country) {
+    strcpy(p->name, name);
+    strcpy(p->country, country);
+}
+
+void readPerson(const struct Person *p) {
+    printf("Name: %s, Country: %s\n", p->name, p->country);
+}
+
+void updatePerson(struct Person *p, const char *name, const char *country) {
+    strcpy(p->name, name);
+    strcpy(p->country, country);
+}
+
+void deletePerson(struct Person *p) {
+    strcpy(p->name, "");
+    strcpy(p->country, "");
+}
+
+void createBowler(struct Bowler *b, const char *style, const char *armType, const char *name, const char *country) {
+    strcpy(b->style, style);
+    strcpy(b->armType, armType);
+    createPerson(&b->details, name, country);
+}
+
+void readBowler(const struct Bowler *b) {
+    printf("Style: %s, Arm: %s, ", b->style, b->armType);
+    readPerson(&b->details);
+}
+
+void updateBowler(struct Bowler *b, const char *style, const char *armType, const char *name, const char *country) {
+    strcpy(b->style, style);
+    strcpy(b->armType, armType);
+    updatePerson(&b->details, name, country);
+}
+
+void deleteBowler(struct Bowler *b) {
+    strcpy(b->style, "");
+    strcpy(b->armType, "");
+    deletePerson(&b->details);
+}
+
+void createBatsman(struct Batsman *b, const char *order, const char *handType, const char *style, const char *armType, const char *name, const char *country) {
+    strcpy(b->order, order);
+    strcpy(b->handType, handType);
+    createBowler(&b->bowlerInfo, style, armType, name, country);
+}
+
+void readBatsman(const struct Batsman *b) {
+    printf("Order: %s, Handed: %s, ", b->order, b->handType);
+    readBowler(&b->bowlerInfo);
+}
+
+void updateBatsman(struct Batsman *b, const char *order, const char *handType, const char *style, const char *armType, const char *name, const char *country) {
+    strcpy(b->order, order);
+    strcpy(b->handType, handType);
+    updateBowler(&b->bowlerInfo, style, armType, name, country);
+}
+
+void deleteBatsman(struct Batsman *b) {
+    strcpy(b->order, "");
+    strcpy(b->handType, "");
+    deleteBowler(&b->bowlerInfo);
+}
+
+void savePersons(const char *filename, const struct Person persons[], int size) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) return;
+    for (int i = 0; i < size; i++) {
+        fprintf(file, "%s %s\n", persons[i].name, persons[i].country);
+    }
+    fclose(file);
+}
+
+void loadPersons(const char *filename, struct Person persons[], int *size) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) return;
+    *size = 0;
+    while (fscanf(file, "%s %s", persons[*size].name, persons[*size].country) != EOF) {
+        (*size)++;
+    }
+    fclose(file);
+}
+
+void saveBowlers(const char *filename, const struct Bowler bowlers[], int size) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) return;
+    for (int i = 0; i < size; i++) {
+        fprintf(file, "%s %s %s %s\n", bowlers[i].style, bowlers[i].armType, bowlers[i].details.name, bowlers[i].details.country);
+    }
+    fclose(file);
+}
+
+void loadBowlers(const char *filename, struct Bowler bowlers[], int *size) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) return;
+    *size = 0;
+    while (fscanf(file, "%s %s %s %s", bowlers[*size].style, bowlers[*size].armType, bowlers[*size].details.name, bowlers[*size].details.country) != EOF) {
+        (*size)++;
+    }
+    fclose(file);
+}
+
+void saveBatsmen(const char *filename, const struct Batsman batsmen[], int size) {
+    FILE *file = fopen(filename, "w");
+    if (file == NULL) return;
+    for (int i = 0; i < size; i++) {
+        fprintf(file, "%s %s %s %s %s %s\n", batsmen[i].order, batsmen[i].handType, batsmen[i].bowlerInfo.style, batsmen[i].bowlerInfo.armType, batsmen[i].bowlerInfo.details.name, batsmen[i].bowlerInfo.details.country);
+    }
+    fclose(file);
+}
+
+void loadBatsmen(const char *filename, struct Batsman batsmen[], int *size) {
+    FILE *file = fopen(filename, "r");
+    if (file == NULL) return;
+    *size = 0;
+    while (fscanf(file, "%s %s %s %s %s %s", batsmen[*size].order, batsmen[*size].handType, batsmen[*size].bowlerInfo.style, batsmen[*size].bowlerInfo.armType, batsmen[*size].bowlerInfo.details.name, batsmen[*size].bowlerInfo.details.country) != EOF) {
+        (*size)++;
+    }
+    fclose(file);
+}
+
+int main() {
+    struct Person persons[5];
+    struct Bowler bowlers[3];
+    struct Batsman batsmen[2];
+    int personCount, bowlerCount, batsmanCount;
+
+    createPerson(&persons[0], "Alex", "Australia");
+    createPerson(&persons[1], "Chris", "England");
+    createPerson(&persons[2], "Ravi", "India");
+    createPerson(&persons[3], "Ahmed", "Pakistan");
+    createPerson(&persons[4], "Kumar", "SouthAfrica");
+
+    createBowler(&bowlers[0], "Fast", "Right", "Alex", "Australia");
+    createBowler(&bowlers[1], "Medium", "Left", "Chris", "England");
+    createBowler(&bowlers[2], "Spin", "Right", "Ravi", "India");
+
+    createBatsman(&batsmen[0], "Top", "Left", "Fast", "Right", "Ahmed", "Pakistan");
+    createBatsman(&batsmen[1], "Middle", "Right", "Medium", "Left", "Kumar", "SouthAfrica");
+
+    printf("Persons:\n");
+    savePersons("persons.txt", persons, 5);
+    loadPersons("persons.txt", persons, &personCount);
+    for (int i = 0; i < personCount; i++) {
+        readPerson(&persons[i]);
+    }
+
+    printf("\nBowlers:\n");
+    saveBowlers("bowlers.txt", bowlers, 3);
+    loadBowlers("bowlers.txt", bowlers, &bowlerCount);
+    for (int i = 0; i < bowlerCount; i++) {
+        readBowler(&bowlers[i]);
+    }
+
+    printf("\nBatsmen:\n");
+    saveBatsmen("batsmen.txt", batsmen, 2);
+    loadBatsmen("batsmen.txt", batsmen, &batsmanCount);
+        for (int i = 0; i < batsmanCount; i++) {
+        readBatsman(&batsmen[i]);
+    }
+
+    return 0;
+}
+
 
